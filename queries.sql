@@ -97,3 +97,59 @@ WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
 
 SELECT owners.full_name, COUNT(animals.name) AS total FROM owners LEFT JOIN animals ON animals.owner_id = owners.id
 GROUP BY owners.full_name ORDER BY total DESC LIMIT 1;
+
+
+SELECT animals.name, visits.date_of_visit FROM animals JOIN visits ON animals.id = visits.animals_id
+JOIN vets ON vets.id = visits.vets_id WHERE vets.id = 4 ORDER BY date_of_visit DESC LIMIT 1;
+
+SELECT COUNT (DISTINCT animals.name) FROM animals JOIN visits ON animals.id = visits.animals_id
+JOIN vets ON vets.id = visits.vets_id WHERE vets.id = 2;
+
+SELECT vets.name, species.name
+FROM vets 
+LEFT JOIN specializations ON vets.id = specializations.vets_id
+LEFT JOIN species ON specializations.species_id = species.id;
+
+SELECT animals.name
+FROM animals
+JOIN visits ON animals.id = visits.animals_id
+JOIN vets ON vets.id = visits.vets_id
+WHERE vets.id = 2
+AND visits.date_of_visit >= '2020-01-04' AND visits.date_of_visit <= '2020-08-30';
+
+SELECT animals.name, COUNT(visits.animals_id) AS visit_count
+FROM visits
+JOIN animals ON animals.id = visits.animals_id
+GROUP BY animals.name
+ORDER BY visit_count DESC
+LIMIT 1;
+
+SELECT animals.name 
+FROM animals
+JOIN visits ON animals.id = visits.animals_id
+JOIN vets on vets.id = visits.vets_id
+WHERE vets.id = 1
+ORDER BY visits.date_of_visit
+LIMIT 1;
+
+SELECT animals.*, vets.*, visits.date_of_visit
+FROM visits
+LEFT JOIN animals ON animals.id = visits.animals_id
+LEFT JOIN vets ON vets.id = visits.vets_id
+ORDER BY visits.date_of_visit DESC
+LIMIT 1;
+
+SELECT COUNT(*)
+FROM visits
+JOIN vets ON vets.id = visits.vets_id
+WHERE vets.id = 1;
+
+SELECT species.name, COUNT(visits.animals_id)
+FROM visits
+JOIN vets ON visits.vets_id = vets.id
+FULL JOIN animals ON visits.animals_id = animals.id
+JOIN species ON species.id = animals.species_id
+WHERE vets.id = 1
+GROUP BY species.name
+ORDER BY COUNT(visits.animals_id) DESC
+LIMIT 1;

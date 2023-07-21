@@ -13,6 +13,7 @@
     - [Key Features ](#key-features-)
   - [💻 Getting Started ](#-getting-started-)
   - [👥 Authors ](#-authors-)
+  - [🔭 Future Features](#future-features)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
@@ -70,6 +71,14 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [Twitter](https://twitter.com/Deby_grey)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **[Create a database based on diagram]**
+- [ ] **[Perform databse performance audit]**
 
 <!-- CONTRIBUTING -->
 
